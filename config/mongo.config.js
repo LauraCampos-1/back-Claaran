@@ -4,7 +4,7 @@ dotenv.config();
 
 async function dbConnection() {
     try {
-        await mongoose.connect( process.env.DB_URL, {} );
+        await mongoose.connect( "mongodb+srv://lcampos-bit:admin@clusterlaura.duej3g5.mongodb.net/claaran", {} );
         console.log( 'Base de datos inicializada exitosamente' );
     } 
     catch (error) {

@@ -4,7 +4,7 @@ const express = require( 'express' );       // Importamos express
 const app = express();                      // Invocamos express
 const cors = require( 'cors' );
 
-const {dbConnection} = require('./config/mongo.config');  // Importamos la configuracion de Mongoose para MongoDB
+const {dbConnection} = require('./config/mongo.config.js');  // Importamos la configuracion de Mongoose para MongoDB
 require("dotenv").config()
 const PORT = process.env.PORT
 
@@ -17,7 +17,7 @@ app.use( cors() );
 // app.use( '/api/descriptions', require( './routes/description.routes'))
 // app.use( '/api/contacts',require('./routes/contact.routes'));
 
-app.use('/api', require('./routes/routes.js'))
+app.use('/api', require('./src/routes/routes.js'))
 app.get('/api/health', (req, res) => {
     res.json({
         status: 'ok',
@@ -28,6 +28,6 @@ app.get('/api/health', (req, res) => {
 dbConnection();
 
 /* / Lanzamos el servidor web */
-app.listen( PORT, function() {
+app.listen( PORT||4003, function() {
     console.log(`servidor corriendo en http://localhost:${PORT}`);
 });
