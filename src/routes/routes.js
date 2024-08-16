@@ -8,8 +8,8 @@ const router = Router()
 
 // registro y usuario de login
 
-router.post('/auth/login', login);
-router.post('/auth/register', register);
+router.post('/auth/login/', login);
+router.post('/auth/register/', register);
 
 //Contactos
 router.get('/contacts/',getContacts);
